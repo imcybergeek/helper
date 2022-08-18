@@ -1,8 +1,15 @@
-const http = require('http');
+const express = require('express')
 
-// Create server object
-http.createServer((req, res) => {
-// Write Response
-res.write('Hello World');
-res.end()
-}).listen(5000, () => console.log('Server running...'));
+const app = express()
+
+app.use(express.json())
+
+app.use(express.urlencoded({extended: false}))
+
+app.get('/', (req, res) => {
+    res.send('I am helper')
+})
+
+const PORT = process.env.PORT || 5001
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
