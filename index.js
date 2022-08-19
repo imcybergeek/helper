@@ -12,7 +12,7 @@ app.post('/hook', (req, res) => {
         let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
 
         if (req.headers['x-hub-signature'] == sig) {
-            exec('bash deploy.sh');
+            exec('bash deploy.sh', (err, stdout, stderr) => console.log(err, stdout, stderr));
             console.log('Done!');
             res.status(200);
         }
