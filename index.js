@@ -1,15 +1,22 @@
-const express = require('express')
+const express = require('express');
+let http = require('http');
+let crypto = require('crypto');
+const exec = require('child_process').exec;
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+const secret = "secret";
 
-app.use(express.urlencoded({extended: false}))
+app.post('/hook', (req, res) => {
+    req.on('data', function (chunk) {
+        let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
 
-app.get('/', (req, res) => {
-    res.send('I am helper')
+        if (req.headers['x-hub-signature'] == sig) {
+            exec('bash deploy.sh');
+            console.log('Done!');
+            res.status(200);
+        }
+    })
 })
 
-const PORT = process.env.PORT || 5001
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.listen(8080, () => console.log('Helper is running...'))
