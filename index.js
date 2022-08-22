@@ -6,7 +6,7 @@ var nodemailer = require('nodemailer');
 const app = express();
 
 const secret = "secret";
-const downtimeMailer = (stdout) => mailer(stdout.split('Server Downtime: ')[1])
+const downtimeMailer = (stdout) => mailer(stdout.split('Server Downtime: ')[1]).catch(console.error);
 
 const mailer = async (downtime) => {
 // Generate test SMTP service account from ethereal.email
