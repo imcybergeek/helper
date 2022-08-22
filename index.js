@@ -18,21 +18,16 @@ const mailer = async (downtime) => {
     }
 });
 
-  // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: 'zxdsaqwerty7654321', // sender address
-    to: "jatinjxd@gmail.com, jatin.joshi@revfin.in", // list of receivers
-    subject: "Server Downtime", // Subject line
-    text: "Hi", // plain text body
-    html: `<h1>Server Downtime: ${downtime}</h1>`, // html body
+    from: 'zxdsaqwerty7654321@outlook.com',
+    to: "jatinjxd@gmail.com, jatin.joshi@revfin.in",
+    subject: "Server Downtime",
+    text: "Hi",
+    html: `<h1>Server Downtime: ${downtime}</h1>`,
   });
 
   console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
 app.post('/hook', (req, res) => {
