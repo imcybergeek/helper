@@ -10,17 +10,17 @@ const downtimeMailer = (stdout) => mailer(stdout.split('Server Downtime: ')[1]).
 
 const mailer = async (downtime) => {
   const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: 'smtp-mail.outlook.com',
     port: 587,
     auth: {
-        user: 'elian59@ethereal.email',
-        pass: 'tv59DJ6Nd61xA1kR73'
+        user: 'zxdsaqwerty7654321@outlook.com',
+        pass: 'zxcdsaqwe321'
     }
 });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: 'elian59@ethereal.email', // sender address
+    from: 'zxdsaqwerty7654321', // sender address
     to: "jatinjxd@gmail.com, jatin.joshi@revfin.in", // list of receivers
     subject: "Server Downtime", // Subject line
     text: "Hi", // plain text body
