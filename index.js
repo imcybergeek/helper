@@ -9,8 +9,6 @@ const secret = "secret";
 const downtimeMailer = (stdout) => mailer(stdout.split('Server Downtime: ')[1]).catch(console.error);
 
 const mailer = async (downtime) => {
-// Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
   const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
@@ -22,7 +20,7 @@ const mailer = async (downtime) => {
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Jatin Joshi 👻" <foo@example.com>', // sender address
+    from: '"Jatin Joshi 👻" elisabeth.ullrich4@ethereal.email', // sender address
     to: "jatinjxd@gmail.com, jatin.joshi@revfin.in", // list of receivers
     subject: "Server Downtime", // Subject line
     text: "Hi", // plain text body
