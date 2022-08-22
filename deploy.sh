@@ -14,4 +14,3 @@ echo "running container"
 docker run -d -p 5000:5000 --name server server
 ELAPSED="Server Downtime: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
 echo $ELAPSED
-echo "deployed"
