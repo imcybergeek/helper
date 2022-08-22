@@ -14,7 +14,7 @@ app.post('/hook', (req, res) => {
         if (req.headers['x-hub-signature'] == sig) {
             const process = exec('bash deploy.sh', (err, stdout, stderr) => {console.log(err,stdout,stderr); downtime = stdout});
 
-            console.log(downtime);
+            console.log('dsfasfsdfsad', downtime);
             res.status(200);
         }
     })
