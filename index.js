@@ -5,15 +5,14 @@ const exec = require('child_process').exec;
 const app = express();
 
 const secret = "secret";
-let downtime;
+const callback = (stdout) => console.log(stdout)
 
 app.post('/hook', (req, res) => {
     req.on('data', function (chunk) {
         let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
 
         if (req.headers['x-hub-signature'] == sig) {
-            const process = exec('bash deploy.sh', (err, stdout, stderr) => {
-                console.log(err,stdout,stderr); downtime = stdout}).then(console.log("asdfghjk",downtime));
+            const process = exec('bash deploy.sh', (err, stdout, stderr) => callback(stdout))
             res.status(200);
         }
     })
