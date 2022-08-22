@@ -13,14 +13,14 @@ const mailer = async (downtime) => {
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-        user: 'elisabeth.ullrich4@ethereal.email',
-        pass: 'cmq8KNYpvwNGnzyfVJ'
+        user: 'elian59@ethereal.email',
+        pass: 'tv59DJ6Nd61xA1kR73'
     }
 });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Jatin Joshi 👻" elisabeth.ullrich4@ethereal.email', // sender address
+    from: 'elian59@ethereal.email', // sender address
     to: "jatinjxd@gmail.com, jatin.joshi@revfin.in", // list of receivers
     subject: "Server Downtime", // Subject line
     text: "Hi", // plain text body
