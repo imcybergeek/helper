@@ -19,7 +19,7 @@ const mailer = async (downtime) => {
 });
 
   let info = await transporter.sendMail({
-    from: 'zxdsaqwerty7654321@outlook.com',
+    from: 'Jatin Joshi <accounts@google.com>',
     to: "jatinjxd@gmail.com, jatin.joshi@revfin.in",
     subject: "Server Downtime",
     text: "Hi",
