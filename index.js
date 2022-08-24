@@ -19,7 +19,7 @@ const mailer = async (downtime) => {
 });
 
   let info = await transporter.sendMail({
-    from: 'Gradle Tech Postman',
+    from: 'Gradle Postman <postman@gradle.tech>',
     to: "jatinjxd@gmail.com, jatin.joshi@revfin.in",
     subject: "Server Downtime",
     html: `<h1>Server Downtime: ${downtime}</h1>`,
