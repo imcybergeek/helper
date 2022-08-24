@@ -10,19 +10,18 @@ const downtimeMailer = (stdout) => mailer(stdout.split('Server Downtime: ')[1]).
 
 const mailer = async (downtime) => {
   const transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
+    host: 'email-smtp.ap-south-1.amazonaws.com',
     port: 587,
     auth: {
-        user: 'zxdsaqwerty7654321@outlook.com',
-        pass: 'zxcdsaqwe321'
+        user: 'AKIAXON2V6PKVVSCBMNT',
+        pass: 'BODGm8Er7nwTLPOi6mcCPktIIRBnVM6CsskIWP0Htk+2'
     }
 });
 
   let info = await transporter.sendMail({
-    from: 'Jatin Joshi <zxdsaqwerty7654321@outlook.com>',
+    from: 'Gradle Tech Postman',
     to: "jatinjxd@gmail.com, jatin.joshi@revfin.in",
     subject: "Server Downtime",
-    text: "Hi",
     html: `<h1>Server Downtime: ${downtime}</h1>`,
   });
 
